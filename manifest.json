@@ -1,0 +1,42 @@
+{
+    "manifest_version": 3,
+    "name": "Imoveis marinescos",
+    "version": "1.0",
+    "description": "Obter informações de imoveis imovirtual e idealista.",
+    "permissions": [
+        "contextMenus",
+        "tabs",
+        "clipboardWrite",
+        "clipboardRead",
+        "scripting"
+    ],
+    "content_scripts": [
+        {
+            "run_at": "document_end",
+            "matches": [
+                "*://*.imovirtual.com/*",
+                "*://*.idealista.pt/*"
+            ],
+            "js": [
+                "js/jquery-3.6.1.min.js",
+                "js/save-current-page.js"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "action": {
+        "default_icon": "images/icon.png"
+    },
+    "host_permissions": [
+        "*://*.imovirtual.com/*",
+        "*://*.idealista.pt/*"
+    ],
+    "icons": {
+        "16": "images/icon.png",
+        "32": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
+    }
+}
